@@ -11,5 +11,13 @@ post_setup:
 .for service url in ${SERVICES}
 	@echo "/var/run/cbsdng /var/run/cbsdng nullfs rw 0 0" >services/${service}/templates/fstab
 .endfor
+.if !exists(${HOME}/.ccache)
+.if exists(/usr/local/bin/ccache)
+	@ccache -c
+.else
+	@mkdir ${HOME}/.ccache
+.endif
+.endif
+	@echo "${HOME}/.ccache /usr/home/devel/.ccache nullfs rw 0 0" >>services/daemon/templates/fstab
 
 .include <${REGGAE_PATH}/mk/project.mk>
