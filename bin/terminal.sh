@@ -5,5 +5,5 @@ export BIN_DIR=`dirname $0`
 export PROJECT_ROOT="${BIN_DIR}/.."
 
 
-cd ${PROJECT_ROOT}/services/daemon/proxy
+cd ${PROJECT_ROOT}/services/terminal/proxy
 tcsh

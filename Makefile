@@ -1,7 +1,7 @@
 USE_FREENIT = YES
 REGGAE_PATH = /usr/local/share/reggae
 SERVICES = redis https://github.com/mekanix/jail-redis \
-	   daemon https://github.com/cbsdng/daemon \
+	   terminal https://github.com/cbsdng/terminal \
 	   backend https://github.com/cbsdng/backend \
 	   frontend https://github.com/cbsdng/frontend
 
@@ -19,6 +19,6 @@ post_setup:
 	@mkdir ${HOME}/.ccache
 .endif
 .endif
-	@echo "${HOME}/.ccache /usr/home/devel/.ccache nullfs rw 0 0" >>services/daemon/templates/fstab
+	@echo "${HOME}/.ccache /usr/home/devel/.ccache nullfs rw 0 0" >>services/terminal/templates/fstab
 
 .include <${REGGAE_PATH}/mk/project.mk>
